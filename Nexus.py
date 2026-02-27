@@ -301,7 +301,6 @@ class NexusApp(ctk.CTk):
         with torch.no_grad(): out = self.model(**inputs)
         return out.last_hidden_state.max(dim=1).values.numpy()
 
-    # --- FUNÇÃO ADICIONADA PARA CORRIGIR O ERRO ---
     def interpretar(self, af):
         if af >= 85: return "ALTO", "Interacao forte detectada.", "#27ae60"
         if af >= 60: return "MEDIO", "Possivel interacao moderada.", "#f39c12"
@@ -372,4 +371,5 @@ class NexusApp(ctk.CTk):
 
 if __name__ == "__main__":
     app = NexusApp()
+
     app.mainloop()
